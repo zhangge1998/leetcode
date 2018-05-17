@@ -1,0 +1,24 @@
+/**
+ * Definition for binary tree
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+ /*
+ *使用递归方法实现求二叉树最大深度
+ */
+public class Solution {
+    public int maxDepth(TreeNode root) {
+        if(root == null){
+            return 0;
+        }
+        else{
+            int ld = maxDepth(root.left);
+            int rd = maxDepth(root.right);
+            return (ld > rd) ? ld +1 : rd + 1;  
+        }
+    }
+}
