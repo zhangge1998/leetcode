@@ -1,0 +1,29 @@
+/**
+ * Definition for singly-linked list.
+ * class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) {
+ *         val = x;
+ *         next = null;
+ *     }
+ * }
+ */
+ 
+ /*
+  *定义快慢指针，如果快指针可以追上慢指针，则为循环链表
+  */
+public class Solution {
+    public boolean hasCycle(ListNode head) {
+        ListNode search = head;
+        ListNode mid = head;
+        while(search != null && search.next != null){
+            search = search.next.next;
+            mid = mid.next;
+            if(search == mid){
+                return true;
+            }
+        }
+        return false;
+    }
+}
